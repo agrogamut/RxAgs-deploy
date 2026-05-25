@@ -5,19 +5,10 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { BentoGrid } from "@/components/ui/bento-grid"
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion"
-import {
-  CardioIcon,
-  LungsIcon,
-  StomachIcon,
-  DNAIcon,
-  CapsuleIcon,
-  MoleculeIcon,
-} from "@/components/shared/MedicalIcons"
 
 const areas = [
   {
     index: "01",
-    Icon: CardioIcon,
     name: "Cardiovascular Care",
     desc: "Managing hypertension, lipid disorders, and heart health to protect life's vital rhythm.",
     img: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=900&q=75",
@@ -26,7 +17,6 @@ const areas = [
   },
   {
     index: "02",
-    Icon: LungsIcon,
     name: "Respiratory & Pulmonology",
     desc: "Advanced therapies that help patients breathe easier — from asthma to acute respiratory care.",
     img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=900&q=75",
@@ -35,7 +25,6 @@ const areas = [
   },
   {
     index: "03",
-    Icon: StomachIcon,
     name: "Gastroenterology",
     desc: "Restoring digestive health with highly effective anti-ulcerants, antacids, and gut-health formulations.",
     img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=75",
@@ -44,7 +33,6 @@ const areas = [
   },
   {
     index: "04",
-    Icon: DNAIcon,
     name: "Anti-Infectives",
     desc: "Powerful, reliable defense mechanisms against bacterial and viral infections.",
     img: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=900&q=75",
@@ -53,7 +41,6 @@ const areas = [
   },
   {
     index: "05",
-    Icon: CapsuleIcon,
     name: "Analgesics & Pain Management",
     desc: "Rapid and sustained-release formulations targeting acute, chronic, and inflammatory pain.",
     img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=900&q=75",
@@ -62,7 +49,6 @@ const areas = [
   },
   {
     index: "06",
-    Icon: MoleculeIcon,
     name: "Nutraceuticals & Wellness",
     desc: "Vital vitamins, minerals, and supplements designed to boost immunity and promote preventive healthcare.",
     img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=900&q=75",
@@ -132,14 +118,6 @@ export default function PortfolioOfCare() {
                 <span className="absolute top-4 right-4 text-xs font-mono text-white/30 select-none">
                   {area.index}
                 </span>
-
-                {/* Icon — top left, fades on hover */}
-                <div
-                  className="absolute top-4 left-4 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-90"
-                  style={{ backgroundColor: `${area.accent}30`, border: `1px solid ${area.accent}50` }}
-                >
-                  <area.Icon className="w-5 h-5 text-white" />
-                </div>
 
                 {/* Text — slides up on hover */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:-translate-y-1 transition-transform duration-300">
