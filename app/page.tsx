@@ -2,7 +2,7 @@ import Hero from "@/components/home/Hero"
 import AboutSection from "@/components/home/AboutSection"
 import TherapeuticAreas from "@/components/home/TherapeuticAreas"
 import ProductCarousel from "@/components/home/ProductCarousel"
-import CTABanner from "@/components/home/CTABanner"
+import ContactSection from "@/components/home/ContactSection"
 
 export default function HomePage() {
   return (
@@ -11,7 +11,7 @@ export default function HomePage() {
       <AboutSection />
       <TherapeuticAreas />
       <ProductCarousel />
-      <CTABanner />
+      <ContactSection />
     </>
   )
 }

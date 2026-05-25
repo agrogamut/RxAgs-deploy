@@ -94,13 +94,13 @@ export default function Hero() {
               Explore Our Portfolio
               <ArrowRight size={16} />
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="#contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all duration-200 backdrop-blur-sm"
             >
               <Users size={16} />
               Partner With Us
-            </Link>
+            </a>
           </motion.div>
         </div>
       </div>

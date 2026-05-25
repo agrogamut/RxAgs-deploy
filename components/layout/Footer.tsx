@@ -2,19 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
 
-const quickLinks = [
-  { label: "About Us", href: "/#about" },
-  { label: "Therapeutics", href: "/#therapeutic" },
-  { label: "Product Catalogue", href: "/products" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Sustainability", href: "/sustainability" },
-]
-
 export default function Footer() {
   return (
     <footer className="bg-[#0D1B2A] text-white/80">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Image
@@ -30,41 +22,26 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-              Contact
-            </h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
-              <li>Agrogamut Services Pvt. Ltd.</li>
-              <li>
-                <a
-                  href="mailto:info@agrogamut.com"
-                  className="hover:text-white transition-colors"
-                >
-                  info@agrogamut.com
-                </a>
-              </li>
-            </ul>
+          {/* Links + Contact */}
+          <div className="flex flex-col gap-6">
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+                Navigate
+              </h4>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/products" className="text-sm text-white/60 hover:text-white transition-colors">Products</Link></li>
+                <li><a href="/#contact" className="text-sm text-white/60 hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+                Contact
+              </h4>
+              <a href="mailto:info@agrogamut.com" className="text-sm text-white/60 hover:text-white transition-colors">
+                info@agrogamut.com
+              </a>
+            </div>
           </div>
         </div>
 
@@ -72,7 +49,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/40">
           <p>© 2026 Agrogamut Services Pvt. Ltd. All rights reserved.</p>
-          <p className="max-w-lg text-right">
+          <p className="max-w-lg md:text-right">
             Disclaimer: The medical information on this site is for educational purposes only.
             Please consult a healthcare professional for medical advice, diagnosis, or treatment.
           </p>

@@ -7,15 +7,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { fadeDown } from "@/lib/motion"
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/#about" },
-  { label: "What We Cater", href: "/#therapeutic" },
-  { label: "Products", href: "/products" },
-  { label: "Sustainability", href: "/sustainability" },
-  { label: "Contact Us", href: "/contact" },
-]
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -39,7 +30,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logo.png"
             alt="Agrogamut Services Pvt. Ltd."
@@ -51,22 +42,19 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-primary rounded-md transition-colors duration-150"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-3">
           <Link
-            href="/contact"
-            className="ml-4 px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-[#0D4F8C] rounded-lg transition-colors duration-150"
+            href="/products"
+            className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-primary rounded-md transition-colors duration-150"
           >
-            Partner With Us
+            Products
           </Link>
+          <a
+            href="/#contact"
+            className="px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-[#0D4F8C] rounded-lg transition-colors duration-150"
+          >
+            Contact Us
+          </a>
         </nav>
 
         {/* Mobile hamburger */}
@@ -90,23 +78,20 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden bg-white border-b border-brand-border"
           >
             <nav className="px-6 py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="py-2.5 text-sm font-medium text-foreground/80 hover:text-primary border-b border-brand-border last:border-0 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
               <Link
-                href="/contact"
+                href="/products"
+                onClick={() => setOpen(false)}
+                className="py-2.5 text-sm font-medium text-foreground/80 hover:text-primary border-b border-brand-border transition-colors"
+              >
+                Products
+              </Link>
+              <a
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="mt-3 px-4 py-2.5 text-sm font-semibold text-white bg-primary rounded-lg text-center"
               >
-                Partner With Us
-              </Link>
+                Contact Us
+              </a>
             </nav>
           </motion.div>
         )}
