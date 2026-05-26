@@ -3,6 +3,7 @@ import { Sora, DM_Sans } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import BackToTopButton from "@/components/shared/BackToTopButton"
 
 const sora = Sora({
   variable: "--font-sora",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <BackToTopButton />
       </body>
     </html>
   )

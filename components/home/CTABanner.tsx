@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion"
@@ -52,13 +51,13 @@ export default function CTABanner() {
             everywhere.
           </motion.p>
           <motion.div variants={fadeUp}>
-            <Link
-              href="/contact"
+            <a
+              href="/#contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-[#1A6FBF] hover:bg-white hover:text-[#0D1B2A] text-white font-semibold text-sm transition-all duration-200"
             >
               Get in Touch
               <ArrowRight size={16} />
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>

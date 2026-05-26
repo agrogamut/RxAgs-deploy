@@ -45,8 +45,8 @@ export default function ProductsPage() {
             global healthcare regulatory mandates. For bulk institutional inquiries, export
             documentation, or third-party contract manufacturing queries, please reach out to our
             corporate desk via our{" "}
-            <Link href="/contact" className="text-primary hover:underline font-medium">
-              Contact Page
+            <Link href="/#contact" className="text-primary hover:underline font-medium">
+              contact form
             </Link>
             .
           </p>
