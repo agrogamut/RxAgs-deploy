@@ -13,18 +13,27 @@ export default function ProductsPage() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-[#0D1B2A] pt-28 pb-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative bg-[#0D1B2A] pt-28 pb-16 overflow-hidden">
+        {/* Subtle radial glow */}
+        <div
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(26,111,191,0.08) 0%, transparent 65%)" }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-xs text-white/40 mb-6">
-            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
+          <nav className="flex items-center gap-1.5 text-xs text-white/35 mb-8">
+            <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
             <ChevronRight size={12} />
-            <span className="text-white/60">Products</span>
+            <span className="text-white/55">Products</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#1A6FBF] flex items-center gap-2.5 mb-4">
+            <span className="h-px w-5 bg-[#1A6FBF] inline-block" />
+            Full Portfolio
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Our Product Portfolio
           </h1>
-          <p className="text-lg text-white/60 max-w-xl">
+          <p className="text-base text-white/55 max-w-lg leading-relaxed">
             Transparent, scientifically validated formulations across diverse medical categories.
           </p>
         </div>
