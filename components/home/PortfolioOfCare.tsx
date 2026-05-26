@@ -20,7 +20,7 @@ const areas = [
     name: "Respiratory & Pulmonology",
     eyebrow: "Breathing & Lung Health",
     desc: "Advanced therapies that help patients breathe easier — from asthma management to acute respiratory care. Antihistamines, bronchodilators, and mucolytic agents for the full spectrum of pulmonary conditions.",
-    img: "https://images.unsplash.com/photo-1715529282082-87e4334283e2?w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1555708982-8645ec9ce3cc?w=1200&q=80",
     accent: "#0694A2",
   },
   {
@@ -44,7 +44,7 @@ const areas = [
     name: "Analgesics & Pain Management",
     eyebrow: "Pain Relief",
     desc: "Rapid and sustained-release formulations targeting acute, chronic, and inflammatory pain. NSAIDs, centrally-acting analgesics, and combination molecules for multi-modal pain control.",
-    img: "https://images.unsplash.com/photo-1706353399656-210cca727a33?w=1200&q=80",
+    img: "https://plus.unsplash.com/premium_photo-1661779204668-1453dc7435ae?w=1200&q=80",
     accent: "#9F5AE0",
   },
   {
