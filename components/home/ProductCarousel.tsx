@@ -8,27 +8,27 @@ import { staggerContainer, fadeUp, viewportOnce } from "@/lib/motion"
 const featured = [
   {
     num: "01",
-    name: "Agtor-F",
-    category: "Cardiovascular",
-    snippet: "Advanced lipid-lowering management to protect cardiovascular health.",
-    composition: "Atorvastatin + Fenofibrate",
+    name: "GLYGAM-EL 1000",
+    category: "Cardio-Diabetic",
+    snippet: "Triple-action diabetic heart care — controls blood sugar, reduces cardiovascular risk and HbA1c simultaneously.",
+    composition: "Metformin 1000mg + Empagliflozin 25mg + Linagliptin 5mg",
     accent: "#E05252",
   },
   {
     num: "02",
-    name: "Rx-Mox CV 625",
-    category: "Anti-Infective",
-    snippet: "High-efficacy broad-spectrum antibiotic for stubborn bacterial infections.",
-    composition: "Amoxicillin + Clavulanic Acid",
-    accent: "#5A67D8",
+    name: "GAMZOLE-D SR",
+    category: "Gastroenterology & Hepatology",
+    snippet: "Sustained-release anti-reflux formula providing 24-hour relief from GERD, acidity, and bloating.",
+    composition: "Rabeprazole 20mg + Domperidone 30mg (SR)",
+    accent: "#C8922A",
   },
   {
     num: "03",
-    name: "Agup-D",
-    category: "Gastroenterology",
-    snippet: "Fast-acting relief from acidity, GERD, and peptic ulcers.",
-    composition: "Pantoprazole + Domperidone",
-    accent: "#C8922A",
+    name: "LEVOGAM-M",
+    category: "Respiratory & Immunology",
+    snippet: "Dual-action allergy and asthma control — blocks histamine and leukotriene receptors for lasting relief.",
+    composition: "Levocetirizine 5mg + Montelukast 10mg",
+    accent: "#0D9488",
   },
 ]
 
@@ -144,14 +144,14 @@ export default function ProductCarousel() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="flex flex-col sm:flex-row items-center gap-5"
+          className="flex flex-col items-center gap-5"
         >
           <p className="text-[#64748B] text-sm">Looking for our complete medical portfolio?</p>
           <Link
             href="/products"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0D1B2A] hover:bg-[#1A2E40] text-white font-semibold text-sm transition-colors duration-200"
           >
-            View All 38 Products
+            View All Medicines
             <ArrowRight size={15} />
           </Link>
         </motion.div>

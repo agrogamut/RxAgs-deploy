@@ -65,7 +65,7 @@ export const columns: ColumnDef<Product>[] = [
     cell: ({ row }) => {
       const cat = row.getValue<Product["category"]>("category")
       return (
-        <Badge variant="outline" className={`text-xs whitespace-nowrap ${categoryColors[cat]}`}>
+        <Badge variant="outline" className={`text-xs ${categoryColors[cat]}`}>
           {cat}
         </Badge>
       )

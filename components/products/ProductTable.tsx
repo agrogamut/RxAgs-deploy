@@ -42,7 +42,7 @@ function SkeletonRow({ index }: { index: number }) {
         <div className="h-2.5 rounded-sm bg-muted/60 animate-pulse" style={{ width: SKEL_COMP_W[index], animationDelay: `${index * 90 + 50}ms` }} />
       </td>
       <td className="px-3 py-[14px]">
-        <div className="h-5 w-[88px] rounded-full bg-muted/60 animate-pulse" style={{ animationDelay: `${index * 90 + 100}ms` }} />
+        <div className="h-5 w-[148px] rounded-full bg-muted/60 animate-pulse" style={{ animationDelay: `${index * 90 + 100}ms` }} />
       </td>
     </tr>
   )
@@ -63,10 +63,10 @@ function SkeletonCard({ index }: { index: number }) {
 
 const COLGROUP = (
   <colgroup>
-    <col style={{ width: "56px" }} />
-    <col style={{ width: "220px" }} />
+    <col style={{ width: "52px" }} />
+    <col style={{ width: "200px" }} />
     <col />
-    <col style={{ width: "168px" }} />
+    <col style={{ width: "240px" }} />
   </colgroup>
 )
 
@@ -91,6 +91,8 @@ export default function ProductTable() {
   const [isInitialLoad, setIsInitialLoad] = useState(true)
   const [fading, setFading] = useState(false)
   const fadeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const bodyWrapRef = useRef<HTMLDivElement>(null)
+  const [minBodyHeight, setMinBodyHeight] = useState(0)
 
   useEffect(() => {
     const t = setTimeout(() => setIsInitialLoad(false), INITIAL_LOAD_MS)
@@ -151,6 +153,19 @@ export default function ProductTable() {
 
   const rows = table.getRowModel().rows
   const { pageIndex, pageSize } = table.getState().pagination
+
+  // Hold the tallest height seen so the table body never shrinks on shorter pages
+  useEffect(() => {
+    if (bodyWrapRef.current) {
+      const h = bodyWrapRef.current.offsetHeight
+      setMinBodyHeight((prev) => Math.max(prev, h))
+    }
+  }, [rows.length])
+
+  // Reset when user switches page size — new size needs its own baseline
+  useEffect(() => {
+    setMinBodyHeight(0)
+  }, [pageSize])
   const pageCount = table.getPageCount()
   const startRow = filtered.length === 0 ? 0 : pageIndex * pageSize + 1
   const endRow = Math.min((pageIndex + 1) * pageSize, filtered.length)
@@ -197,8 +212,10 @@ export default function ProductTable() {
 
         {/* Body — fades on page/sort changes; skeleton overlays on first load */}
         <div
+          ref={bodyWrapRef}
           className="relative"
           style={{
+            minHeight: minBodyHeight || undefined,
             transition: `opacity ${FADE_MS}ms ease-out`,
             opacity: fading ? 0 : 1,
           }}
@@ -346,12 +363,10 @@ export default function ProductTable() {
                 >
                   <Card className="border border-brand-border shadow-none">
                     <CardContent className="p-4">
-                      <div className="flex items-start justify-between gap-3 mb-2">
-                        <h3 className="font-semibold text-[#0D1B2A] text-sm">{p.brandName}</h3>
-                        <Badge variant="outline" className={`text-xs shrink-0 ${categoryColors[p.category]}`}>
-                          {p.category}
-                        </Badge>
-                      </div>
+                      <h3 className="font-semibold text-[#0D1B2A] text-sm mb-1.5">{p.brandName}</h3>
+                      <Badge variant="outline" className={`text-xs mb-2 ${categoryColors[p.category]}`}>
+                        {p.category}
+                      </Badge>
                       <p className="text-xs text-muted-foreground">{p.composition}</p>
                     </CardContent>
                   </Card>
