@@ -9,15 +9,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="inline-flex bg-white rounded-lg px-3 py-2 mb-4">
+            <div className="mb-1">
               <Image
                 src="/logo.png"
-                alt="Agrogamut Services Pvt. Ltd."
-                width={120}
+                alt="RxAgs"
+                width={40}
                 height={40}
-                className="h-8 w-auto object-contain"
+                className="h-20 w-auto"
               />
             </div>
+            <p className="text-xs text-white/40 mb-3">An Unit of Agrogamut Services Pvt. Ltd.</p>
             <p className="text-sm leading-relaxed text-white/60 max-w-xs">
               RxAgs is the premier pharmaceutical division of Agrogamut Services Pvt. Ltd.,
               committed to making quality healthcare accessible and affordable globally.
@@ -40,8 +41,8 @@ export default function Footer() {
               <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
                 Contact
               </h4>
-              <a href="mailto:info@agrogamut.com" className="text-sm text-white/60 hover:text-white transition-colors">
-                info@agrogamut.com
+              <a href="mailto:info@rxags.com" className="text-sm text-white/60 hover:text-white transition-colors">
+                info@rxags.com
               </a>
             </div>
           </div>

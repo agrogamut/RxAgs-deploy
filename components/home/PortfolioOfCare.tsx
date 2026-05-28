@@ -9,55 +9,79 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion"
 const areas = [
   {
     index: "01",
-    name: "Cardiovascular Care",
-    eyebrow: "Heart & Vascular",
-    desc: "Managing hypertension, lipid disorders, and heart health to protect life's vital rhythm. Our portfolio covers anti-hypertensives, statins, diuretics, and comprehensive cardiac support medications.",
+    name: "Cardio-Diabetic",
+    eyebrow: "Heart & Metabolic Health",
+    desc: "Comprehensive management of cardiovascular conditions and diabetes — from anti-hypertensives and statins to oral hypoglycaemics and insulin sensitisers. Supporting the most prevalent co-morbid disease burden in India.",
     img: "https://images.unsplash.com/photo-1682706841289-9d7ddf5eb999?w=1200&q=80",
     accent: "#E05252",
   },
   {
     index: "02",
-    name: "Respiratory & Pulmonology",
-    eyebrow: "Breathing & Lung Health",
-    desc: "Advanced therapies that help patients breathe easier — from asthma management to acute respiratory care. Antihistamines, bronchodilators, and mucolytic agents for the full spectrum of pulmonary conditions.",
+    name: "General Division",
+    eyebrow: "Primary Care",
+    desc: "A broad-spectrum portfolio covering everyday infections, fever, cough, cold, and multi-vitamin deficiencies. Reliable first-line therapies for general practitioners and primary healthcare providers.",
+    img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=80",
+    accent: "#1A6FBF",
+  },
+  {
+    index: "03",
+    name: "Respiratory & Immunology",
+    eyebrow: "Breathing & Immune Health",
+    desc: "Advanced therapies for asthma, COPD, allergic rhinitis, and immune modulation. Our portfolio spans bronchodilators, antihistamines, montelukast combinations, and immune-boosting formulations.",
     img: "https://images.unsplash.com/photo-1555708982-8645ec9ce3cc?w=1200&q=80",
     accent: "#0694A2",
   },
   {
-    index: "03",
-    name: "Gastroenterology",
-    eyebrow: "Digestive Health",
-    desc: "Restoring digestive health with highly effective anti-ulcerants, antacids, and gut-health formulations. From PPIs and prokinetics to liver-supportive agents and gentle laxative solutions.",
-    img: "https://images.unsplash.com/photo-1743767587835-7a80fe384236?w=1200&q=80",
+    index: "04",
+    name: "Gastroenterology & Hepatology",
+    eyebrow: "Digestive & Liver Health",
+    desc: "Restoring digestive balance and liver function with proven PPIs, prokinetics, hepatoprotectives, and antispasmodics. Targeted formulations for acid disorders, IBS, fatty liver, and hepatic support.",
+    img: "https://plus.unsplash.com/premium_photo-1723108858066-66b1bd834675?w=1200&q=80",
     accent: "#C8922A",
   },
   {
-    index: "04",
-    name: "Anti-Infectives",
-    eyebrow: "Infection Defence",
-    desc: "Powerful, reliable defence mechanisms against bacterial and viral infections. Our broad-spectrum antibiotics and combination formulations address resistant and community-acquired infections alike.",
-    img: "https://images.unsplash.com/photo-1706643568112-0234e10777a4?w=1200&q=80",
-    accent: "#5A67D8",
-  },
-  {
     index: "05",
-    name: "Analgesics & Pain Management",
-    eyebrow: "Pain Relief",
-    desc: "Rapid and sustained-release formulations targeting acute, chronic, and inflammatory pain. NSAIDs, centrally-acting analgesics, and combination molecules for multi-modal pain control.",
+    name: "Ortho & Pain Management",
+    eyebrow: "Bone, Joint & Pain Relief",
+    desc: "Multi-modal pain management for acute, chronic, and musculoskeletal conditions. NSAIDs, calcium-vitamin D3 combinations, glucosamine formulations, and centrally-acting analgesics for comprehensive orthopaedic care.",
     img: "https://plus.unsplash.com/premium_photo-1661779204668-1453dc7435ae?w=1200&q=80",
     accent: "#9F5AE0",
   },
   {
     index: "06",
-    name: "Nutraceuticals & Wellness",
-    eyebrow: "Preventive Health",
-    desc: "Vital vitamins, minerals, and supplements designed to boost immunity and promote preventive healthcare. Science-backed formulations that bridge the gap between nutrition and medicine.",
+    name: "ED & Men's Health",
+    eyebrow: "Men's Wellness",
+    desc: "Specialised formulations addressing erectile dysfunction, testosterone support, and male reproductive health. Clinically validated molecules delivered with sensitivity and discretion for better patient outcomes.",
+    img: "https://images.unsplash.com/photo-1625055929490-1ced51017e72?w=1200&q=80",
+    accent: "#2563EB",
+  },
+  {
+    index: "07",
+    name: "Derma & Cosmetology",
+    eyebrow: "Skin Health & Beauty",
+    desc: "Therapeutic and cosmeceutical solutions for acne, pigmentation, fungal infections, and skin ageing. Retinoid combinations, antifungals, depigmenting agents, and moisturising formulations for complete dermatological care.",
+    img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=80",
+    accent: "#E05C94",
+  },
+  {
+    index: "08",
+    name: "Gynae & Obstetrics",
+    eyebrow: "Women's Health",
+    desc: "Dedicated support across the full reproductive lifecycle — from hormonal therapies and PCOS management to prenatal nutrition and menopausal care. Formulations designed with women's physiological needs at the forefront.",
+    img: "https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&q=80",
+    accent: "#D946A8",
+  },
+  {
+    index: "09",
+    name: "Metabolic Wellness & Fitness",
+    eyebrow: "Preventive & Lifestyle Health",
+    desc: "Science-backed nutraceuticals, vitamins, and metabolic modulators that bridge nutrition and medicine. Thyroid support, weight management, antioxidants, and energy-enhancing supplements for a proactive approach to health.",
     img: "https://images.unsplash.com/photo-1732900293895-233f769299b3?w=1200&q=80",
     accent: "#2F9E5E",
   },
 ]
 
-const AUTOPLAY_MS = 5200
+const AUTOPLAY_MS = 3000
 
 const ease = [0.25, 0.1, 0.25, 1] as [number, number, number, number]
 
@@ -84,15 +108,15 @@ export default function PortfolioOfCare() {
     setCurrent(((index % total) + total) % total)
   }, [total])
 
-  const prev = useCallback(() => go(current - 1), [go, current])
-  const next = useCallback(() => go(current + 1), [go, current])
+  const prev = useCallback(() => setCurrent(c => ((c - 1) + total) % total), [total])
+  const next = useCallback(() => setCurrent(c => (c + 1) % total), [total])
 
-  // Auto-play
+  // Auto-play — stable interval, functional update avoids stale closure
   useEffect(() => {
     if (paused) return
-    timerRef.current = setInterval(next, AUTOPLAY_MS)
+    timerRef.current = setInterval(() => setCurrent(c => (c + 1) % total), AUTOPLAY_MS)
     return () => { if (timerRef.current) clearInterval(timerRef.current) }
-  }, [next, paused])
+  }, [paused, total])
 
   const area = areas[current]
 
@@ -123,7 +147,7 @@ export default function PortfolioOfCare() {
             </motion.h2>
           </div>
           <motion.p variants={fadeUp} className="text-white/50 text-sm max-w-xs md:text-right leading-relaxed">
-            Targeted solutions across six major therapeutic specialties.
+            Targeted solutions across nine major therapeutic specialties.
           </motion.p>
         </motion.div>
 
@@ -157,7 +181,7 @@ export default function PortfolioOfCare() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 58vw"
-                    priority={current === 0}
+                    loading="eager"
                   />
                   {/* Right-edge fade into text panel */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-[#0D1B2A]" />

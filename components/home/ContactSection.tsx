@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Loader2, CheckCircle, Mail, MapPin } from "lucide-react"
+import { Loader2, CheckCircle, Mail, MapPin, Phone } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion"
@@ -62,12 +62,25 @@ export default function ContactSection() {
             <div className="p-6 rounded-xl bg-surface border border-brand-border">
               <div className="flex gap-3 items-start mb-4">
                 <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center shrink-0">
+                  <Phone size={16} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-[#0D1B2A] mb-1">Phone</p>
+                  <div className="flex flex-col gap-0.5">
+                    <a href="tel:+918637308625" className="text-sm text-muted-foreground hover:text-primary transition-colors">+91 86373 08625</a>
+                    <a href="tel:+917003401433" className="text-sm text-muted-foreground hover:text-primary transition-colors">+91 70034 01433</a>
+                    <a href="tel:+918100540644" className="text-sm text-muted-foreground hover:text-primary transition-colors">+91 81005 40644</a>
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-3 items-start mb-4">
+                <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center shrink-0">
                   <Mail size={16} className="text-primary" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-[#0D1B2A] mb-1">Email</p>
-                  <a href="mailto:info@agrogamut.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    info@agrogamut.com
+                  <a href="mailto:info@rxags.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    info@rxags.com
                   </a>
                 </div>
               </div>
@@ -77,7 +90,12 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-[#0D1B2A] mb-1">Address</p>
-                  <p className="text-sm text-muted-foreground">Agrogamut Services Pvt. Ltd., India</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Kamala Abasa, 201/4 M.B. Road,<br />
+                    Majerhati, P.S. Nimta,<br />
+                    Kolkata, District: North 24 Parganas,<br />
+                    PIN – 700049, Ground Floor
+                  </p>
                 </div>
               </div>
             </div>

@@ -33,16 +33,24 @@ export default function Navbar() {
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logo.png"
-            alt="Agrogamut Services Pvt. Ltd."
-            width={120}
+            alt="RxAgs"
+            width={40}
             height={40}
-            className="h-9 w-auto object-contain"
+            className="h-20 w-auto"
             priority
           />
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-3">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className={`px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150 ${
+              scrolled ? "text-foreground/70 hover:text-primary" : "text-white/80 hover:text-white"
+            }`}
+          >
+            Home
+          </button>
           <Link
             href="/products"
             className={`px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150 ${
@@ -80,6 +88,12 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden bg-white border-b border-brand-border"
           >
             <nav className="px-6 py-4 flex flex-col gap-1">
+              <button
+                onClick={() => { setOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }) }}
+                className="py-2.5 text-sm font-medium text-foreground/80 hover:text-primary border-b border-brand-border transition-colors text-left"
+              >
+                Home
+              </button>
               <Link
                 href="/products"
                 onClick={() => setOpen(false)}
