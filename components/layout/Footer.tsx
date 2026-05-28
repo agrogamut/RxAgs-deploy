@@ -52,10 +52,9 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/40">
           <p>© 2026 Agrogamut Services Pvt. Ltd. All rights reserved.</p>
-          <p className="max-w-lg md:text-right">
-            Disclaimer: The medical information on this site is for educational purposes only.
-            Please consult a healthcare professional for medical advice, diagnosis, or treatment.
-          </p>
+            <p className="max-w-lg md:text-right">
+            Disclaimer: Do not use these medications without a doctor's supervision. This site is not a substitute for professional medical advice.
+            </p>
         </div>
       </div>
     </footer>
