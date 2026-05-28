@@ -101,12 +101,14 @@ export default function ProductCarousel() {
               </div>
 
               {/* Product name */}
-              <h3
-                className="text-xl font-bold text-[#0D1B2A] mb-1.5 leading-snug"
-                style={{ fontFamily: "var(--font-sora)" }}
-              >
-                {product.name}
-              </h3>
+              <Link href="/products">
+                <h3
+                  className="text-xl font-bold text-[#0D1B2A] hover:text-[#1A6FBF] transition-colors duration-150 mb-1.5 leading-snug cursor-pointer"
+                  style={{ fontFamily: "var(--font-sora)" }}
+                >
+                  {product.name}
+                </h3>
+              </Link>
 
               {/* Composition */}
               <p className="text-[11px] font-mono text-[#64748B] mb-4 tracking-wide">{product.composition}</p>

@@ -2,16 +2,17 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import ProductTable from "@/components/products/ProductTable"
+import PageWrapper from "@/components/layout/PageWrapper"
 
 export const metadata: Metadata = {
   title: "Product Portfolio | RxAgs",
   description:
-    "Browse RxAgs' complete pharmaceutical portfolio — 38 scientifically validated formulations across cardiovascular, respiratory, gastroenterology, and more.",
+    "Browse RxAgs' complete pharmaceutical portfolio — 56 scientifically validated formulations across cardiovascular, respiratory, gastroenterology, and more.",
 }
 
 export default function ProductsPage() {
   return (
-    <>
+    <PageWrapper>
       {/* Page header */}
       <section className="relative bg-[#0D1B2A] pt-28 pb-16 overflow-hidden">
         {/* Subtle radial glow */}
@@ -61,6 +62,6 @@ export default function ProductsPage() {
           </p>
         </div>
       </section>
-    </>
+    </PageWrapper>
   )
 }
