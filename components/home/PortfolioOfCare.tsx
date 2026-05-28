@@ -146,7 +146,7 @@ export default function PortfolioOfCare() {
               Our Portfolio of Care
             </motion.h2>
           </div>
-          <motion.p variants={fadeUp} className="text-white/50 text-sm max-w-xs md:text-right leading-relaxed">
+          <motion.p variants={fadeUp} className="text-white/50 text-sm md:text-right whitespace-nowrap">
             Targeted solutions across nine major therapeutic specialties.
           </motion.p>
         </motion.div>

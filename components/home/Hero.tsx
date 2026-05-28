@@ -1,29 +1,87 @@
 "use client"
 
+import { useState, useEffect, useRef, useCallback } from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { staggerFast, fadeUp, fadeIn } from "@/lib/motion"
 import { ArrowRight, Users } from "lucide-react"
+
+const slides = [
+  {
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80",
+    alt: "Medical laboratory",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1624421514201-db391243ed51?w=1600&q=80",
+    alt: "Abstract light patterns",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1643780668909-580822430155?w=1600&q=80",
+    alt: "Abstract blue and purple structure",
+  },
+  {
+    img: "https://plus.unsplash.com/premium_photo-1668487827156-7aa259d7ffa3?w=1600&q=80",
+    alt: "Laboratory test tubes",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1574794020829-0ef1b254b471?w=1600&q=80",
+    alt: "Abstract blue light",
+  },
+]
+
+const SLIDE_MS = 5500
+const TOTAL = slides.length
 
 const headline = "Advancing Health,\nEnriching Lives."
 
 const stats = [
-  { value: "38+", label: "Formulations" },
-  { value: "6", label: "Specialties" },
+  { value: "56+", label: "Formulations" },
+  { value: "9",   label: "Specialties" },
   { value: "GMP", label: "Certified" },
 ]
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0)
+  const timerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined)
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => setCurrent(c => (c + 1) % TOTAL), SLIDE_MS)
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+  }, [])
+
+  const go = useCallback((i: number) => {
+    setCurrent(i)
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => setCurrent(c => (c + 1) % TOTAL), SLIDE_MS)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80')",
-        }}
-      />
+      {/* Background carousel — dark base prevents flash between slides */}
+      <div className="absolute inset-0 bg-[#060e18]">
+        <AnimatePresence mode="sync" initial={false}>
+          <motion.div
+            key={current}
+            className="absolute inset-0"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <Image
+              src={slides[current].img}
+              alt={slides[current].alt}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              loading="eager"
+              priority={current === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0D1B2A]/92 via-[#0D1B2A]/78 to-[#1A6FBF]/48" />
 
@@ -33,12 +91,12 @@ export default function Hero() {
         style={{ background: "radial-gradient(circle, rgba(26,111,191,0.12) 0%, transparent 65%)" }}
       />
 
+      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-20 w-full">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 lg:gap-6">
 
           {/* Left: main copy */}
           <div className="max-w-2xl">
-            {/* Eyebrow */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
@@ -52,7 +110,6 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               variants={staggerFast}
               initial="hidden"
@@ -66,11 +123,7 @@ export default function Hero() {
               {headline.split("\n").map((line, li) => (
                 <span key={li} className="block">
                   {line.split(" ").map((word, wi) => (
-                    <motion.span
-                      key={wi}
-                      variants={fadeUp}
-                      className="inline-block mr-[0.22em]"
-                    >
+                    <motion.span key={wi} variants={fadeUp} className="inline-block mr-[0.22em]">
                       {word}
                     </motion.span>
                   ))}
@@ -78,7 +131,6 @@ export default function Hero() {
               ))}
             </motion.h1>
 
-            {/* Sub-headline */}
             <motion.p
               variants={fadeUp}
               initial="hidden"
@@ -90,7 +142,6 @@ export default function Hero() {
               delivering high-quality, affordable healthcare solutions globally.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -143,19 +194,26 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Slide indicators */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.3 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2"
       >
-        <span className="text-white/30 text-[10px] tracking-[0.22em] uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          className="w-px h-7 bg-gradient-to-b from-white/30 to-transparent"
-        />
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => go(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width:           i === current ? "24px" : "6px",
+              height:          "6px",
+              backgroundColor: i === current ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.30)",
+            }}
+          />
+        ))}
       </motion.div>
     </section>
   )
