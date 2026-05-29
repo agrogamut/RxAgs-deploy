@@ -60,7 +60,7 @@ const areas = [
     name: "Derma & Cosmetology",
     eyebrow: "Skin Health & Beauty",
     desc: "Therapeutic and cosmeceutical solutions for acne, pigmentation, fungal infections, and skin ageing. Retinoid combinations, antifungals, depigmenting agents, and moisturising formulations for complete dermatological care.",
-    img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=80",
+    img: "https://img.magnific.com/free-photo/applying-moisturizer-purified-skin_1098-21977.jpg",
     accent: "#E05C94",
   },
   {
@@ -68,7 +68,8 @@ const areas = [
     name: "Gynae & Obstetrics",
     eyebrow: "Women's Health",
     desc: "Dedicated support across the full reproductive lifecycle — from hormonal therapies and PCOS management to prenatal nutrition and menopausal care. Formulations designed with women's physiological needs at the forefront.",
-    img: "https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&q=80",
+    img: "https://img.magnific.com/free-photo/hand-holding-uterus-ovary-model_23-2149351688.jpg",
+    flipX: true,
     accent: "#D946A8",
   },
   {
@@ -140,7 +141,7 @@ export default function PortfolioOfCare() {
           <div>
             <motion.span variants={fadeUp} className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#1A6FBF] flex items-center gap-2.5 mb-3">
               <span className="h-px w-5 bg-[#1A6FBF] inline-block" />
-              What We Cater
+              Advancing Patient Care
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white leading-tight">
               Our Portfolio of Care
@@ -180,6 +181,7 @@ export default function PortfolioOfCare() {
                     alt={area.name}
                     fill
                     className="object-cover"
+                    style={{ transform: area.flipX ? "scaleX(-1)" : undefined }}
                     sizes="(max-width: 1024px) 100vw, 58vw"
                     loading="eager"
                   />

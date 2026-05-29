@@ -25,8 +25,9 @@ const slides = [
     alt: "Laboratory test tubes",
   },
   {
-    img: "https://images.unsplash.com/photo-1574794020829-0ef1b254b471?w=1600&q=80",
-    alt: "Abstract blue light",
+    img: "https://images.unsplash.com/photo-1732900293895-233f769299b3?w=1600&q=80",
+    alt: "Metabolic wellness and fitness",
+    position: "center 65%",
   },
 ]
 
@@ -74,6 +75,7 @@ export default function Hero() {
               alt={slides[current].alt}
               fill
               className="object-cover object-center"
+              style={{ objectPosition: slides[current].position ?? "center" }}
               sizes="100vw"
               loading="eager"
               priority={current === 0}

@@ -13,12 +13,12 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="RxAgs"
-                width={40}
-                height={40}
+                width={1612}
+                height={492}
                 className="h-20 w-auto"
               />
             </div>
-            <p className="text-xs text-white/40 mb-3">An Unit of Agrogamut Services Pvt. Ltd.</p>
+            <p className="text-xs text-white/40 mb-3">A unit of Agrogamut Services Pvt. Ltd.</p>
             <p className="text-sm leading-relaxed text-white/60 max-w-xs">
               RxAgs is the premier pharmaceutical division of Agrogamut Services Pvt. Ltd.,
               committed to making quality healthcare accessible and affordable globally.

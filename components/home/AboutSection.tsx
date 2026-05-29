@@ -26,8 +26,8 @@ const pillars = [
 ]
 
 const stats = [
-  { value: "38+", label: "Formulations" },
-  { value: "6", label: "Therapeutic Areas" },
+  { value: "56+", label: "Formulations" },
+  { value: "9", label: "Therapeutic Areas" },
   { value: "GMP", label: "Certified" },
 ]
 
