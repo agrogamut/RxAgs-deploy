@@ -47,7 +47,7 @@ export default function Navbar() {
             alt="RxAgs"
             width={1612}
             height={492}
-            className="h-9 md:h-11 w-auto"
+            className="h-8 md:h-9 w-auto"
             priority
           />
         </Link>

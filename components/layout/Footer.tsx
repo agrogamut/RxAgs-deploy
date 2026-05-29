@@ -15,7 +15,7 @@ export default function Footer() {
                 alt="RxAgs"
                 width={1612}
                 height={492}
-                className="h-20 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-xs text-white/40 mb-3">A unit of Agrogamut Services Pvt. Ltd.</p>
