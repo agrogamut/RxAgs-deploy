@@ -77,7 +77,7 @@ const areas = [
     name: "Metabolic Wellness & Fitness",
     eyebrow: "Preventive & Lifestyle Health",
     desc: "Science-backed nutraceuticals, vitamins, and metabolic modulators that bridge nutrition and medicine. Thyroid support, weight management, antioxidants, and energy-enhancing supplements for a proactive approach to health.",
-    img: "https://images.unsplash.com/photo-1732900293895-233f769299b3?w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1540474861915-87c6b849f6d0?w=1200&q=80",
     accent: "#2F9E5E",
   },
 ]

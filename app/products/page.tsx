@@ -7,7 +7,7 @@ import PageWrapper from "@/components/layout/PageWrapper"
 export const metadata: Metadata = {
   title: "Product Portfolio | RxAgs",
   description:
-    "Browse RxAgs' complete pharmaceutical portfolio — 56 scientifically validated formulations across cardiovascular, respiratory, gastroenterology, and more.",
+    "Browse RxAgs' complete pharmaceutical portfolio — 55 scientifically validated formulations across cardiovascular, respiratory, gastroenterology, and more.",
 }
 
 export default function ProductsPage() {

@@ -37,7 +37,7 @@ const TOTAL = slides.length
 const headline = "Advancing Health,\nEnriching Lives."
 
 const stats = [
-  { value: "56+", label: "Formulations" },
+  { value: "55+", label: "Formulations" },
   { value: "9",   label: "Specialties" },
   { value: "GMP", label: "Certified" },
 ]

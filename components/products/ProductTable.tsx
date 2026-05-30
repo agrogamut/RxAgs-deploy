@@ -86,7 +86,7 @@ function pageRange(current: number, total: number): (number | "…")[] {
 export default function ProductTable() {
   const [search, setSearch] = useState("")
   const [activeCategory, setActiveCategory] = useState<ProductCategory | "All">("All")
-  const [sorting, setSorting] = useState<SortingState>([])
+  const [sorting, setSorting] = useState<SortingState>([{ id: "category", desc: false }])
   const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 })
   const [isInitialLoad, setIsInitialLoad] = useState(true)
   const [fading, setFading] = useState(false)
