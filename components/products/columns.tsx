@@ -15,11 +15,15 @@ export const columns: ColumnDef<Product>[] = [
   {
     accessorKey: "id",
     header: "#",
-    cell: ({ row }) => (
-      <span className="text-xs text-muted-foreground font-mono tabular-nums">
-        {String(row.getValue<number>("id")).padStart(2, "0")}
-      </span>
-    ),
+    cell: ({ row, table }) => {
+      const sortedRows = table.getSortedRowModel().rows
+      const pos = sortedRows.findIndex((r) => r.id === row.id) + 1
+      return (
+        <span className="text-xs text-muted-foreground font-mono tabular-nums">
+          {String(pos).padStart(2, "0")}
+        </span>
+      )
+    },
     size: 48,
   },
   {
